@@ -1,130 +1,103 @@
-<?php
-	require_once(dirname(__FILE__)."/../../../scripts/init.inc.php");
-	$oMysql = MySQL::getInstance();
-	$aNews = $oMysql->getNews(NB_NEWS);
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>jRating demonstration : jquery plugin | Ajaxed star rating system with jQuery : MyjQueryPlugins.com</title>
+	<title>Pluggin jRating : Ajax rating system with jQuery</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="Language" content="en" />
-	<base href="<?php echo URL_SITE; ?>" />
-	<link rel="shortcut icon" href="<?php echo URL_SITE; ?>favicon.ico" />
+	<link rel="stylesheet" href="jquery/jRating.jquery.css" type="text/css" />
 	
-	<meta name="description" content="jRating demonstration. jRating is a very flexible jQuery plugin for quickly creating an Ajaxed star rating system. It is possible to configure every detail from the number of the stars to if the stars can represent decimals or not. There is also an option to display small or big stars and images can be changed with any other file easily. Although the plugin can be used with any scripting language, a PHP file that handles the requests is already included in the download package." />
-	<meta name="robots" content="index, follow, all" />
-	
-	<link rel="stylesheet" href="<?php echo URL_SITE.URL_DEMO_JRATING; ?>jquery/jRating.jquery.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo URL_SITE.URL_DEMO_JRATING; ?>jquery/jNotify.jquery.css" type="text/css" />
-	
-	<link rel="stylesheet" href="<?php echo URL_SITE; ?>static/css/content.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo URL_SITE; ?>static/css/648.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo URL_SITE; ?>static/css/336.css" type="text/css" />
-	<link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css' />
+	<style type="text/css">
+		body {margin:15px;font-family:Arial;font-size:13px}
+		a img{border:0}
+		.datasSent, .serverResponse{margin-top:20px;width:470px;height:73px;border:1px solid #F0F0F0;background-color:#F8F8F8;padding:10px;float:left;margin-right:10px}
+		.datasSent{width:200px;position:fixed;left:680px;top:0}
+		.serverResponse{position:fixed;left:680px;top:100px}
+		.datasSent p, .serverResponse p {font-style:italic;font-size:12px}
+		.exemple{margin-top:15px;}
+		.clr{clear:both}
+		pre {margin:0;padding:0}
+		.notice {background-color:#F4F4F4;color:#666;border:1px solid #CECECE;padding:10px;font-weight:bold;width:600px;font-size:12px;margin-top:10px}
+	</style>
 </head>
+<body>
+<p><a href="#">Back to MyjQueryPlugins</a></p>
 
-<body id="demopage">
-
-	<div class="datasSent">
-		Datas sent to the server :
-		<p></p>
-	</div>
-	<div class="serverResponse">
-		Server response :
-		<p></p>
-	</div>
-	
-	<?php require_once(dirname(__FILE__)."/../../../includes/header.inc.php");?>
-
-<div id="main">
-
-	<div class="breadcrumb">
-		<a href="index" class="backTo">Home</a>
-		<a href="jRating" class="backTo">jRating Homepage</a>
-		<div class="clr"></div>
-	</div>
-	
-	<div id="left_col">
-
-		<h1>jRating demonstration</h1>
-
-		<!-- EXEMPLE 1 : BASIC -->
-		<div class="exemple">
-			<em>Exemple 1 (<strong>Basic exemple without options</strong>) :</em>
-			<div class="basic" id="12_1"></div>
-		</div>
-		<div class="notice">
+<!-- EXEMPLE 1 : BASIC -->
+<div class="exemple">
+	<em>Exemple 1 (<strong>Basic exemple without options</strong>) :</em>
+	<div class="basic" id="12_1"></div>
+</div>
+<div class="notice">
 <pre>
 <?php
 echo htmlentities('<!-- JS to add -->
 <script type="text/javascript">
   $(document).ready(function(){
-	$(".basic").jRating();
+    $(".bacic").jRating();
   });
-</script>');
+</script>
+');
 ?>
 </pre>
-		</div>
+</div>
 
-		<!-- EXEMPLE 2 -->
-		<div class="exemple">
-			<em>Exemple 2 (type : <strong>small</strong> - average <strong>10</strong> - id <strong>2</strong> - <strong>40</strong> stars) :</em>
-			<div class="exemple2" id="10_2"></div>
-		</div>
-		<div class="notice">
+<!-- EXEMPLE 2 -->
+<div class="exemple">
+	<em>Exemple 2 (type : <strong>small</strong> - average <strong>10</strong> - id <strong>2</strong> - <strong>40</strong> stars) :</em>
+	<div class="exemple2" id="10_2"></div>
+</div>
+<div class="notice">
 <pre>
 <?php
 echo htmlentities('<!-- JS to add -->
 <script type="text/javascript">
   $(document).ready(function(){
-	$(".exemple2").jRating({
+    $(".exemple2").jRating({
 	  type:\'small\', // type of the rate.. can be set to \'small\' or \'big\'
 	  length : 40, // nb of stars
 	  decimalLength : 1 // number of decimal in the rate
-	});
+    });
   });
 </script>
 ');
 ?>
 </pre>
-		</div>
-			
-		<!-- EXEMPLE 3 -->
-		<div class="exemple">
-			<em>Exemple 3 (step : <strong>true</strong> - average <strong>18</strong> - id <strong>2</strong> - <strong>15</strong> stars) :</em>
-			<div class="exemple3" id="18_3"></div>
-		</div>
-		<div class="notice">
+</div>
+	
+<!-- EXEMPLE 3 -->
+<div class="exemple">
+	<em>Exemple 3 (step : <strong>true</strong> - average <strong>18</strong> - id <strong>3</strong> - <strong>15</strong> stars) :</em>
+	<div class="exemple3" id="18_3"></div>
+</div>
+<div class="notice">
 <pre>
 <?php
 echo htmlentities('<!-- JS to add -->
 <script type="text/javascript">
   $(document).ready(function(){
-	$(".exemple3").jRating({
-	  step:true,
+    $(".exemple3").jRating({
+	  step:true, // no half-star when mousemove
 	  length : 20, // nb of stars
 	  decimalLength:0 // number of decimal in the rate
-	});
+    });
   });
 </script>
 ');
 ?>
 </pre>
-		</div>
+</div>
 
-		<!-- EXEMPLE 4 -->
-		<div class="exemple">
-			<em>Exemple 4 (<strong>Rate is disabled</strong>) :</em>
-			<div class="exemple4" id="10_4"></div>
-		</div>
-		<div class="notice">
+<!-- EXEMPLE 4 -->
+<div class="exemple">
+	<em>Exemple 4 (<strong>Rate is disabled</strong>) :</em>
+	<div class="exemple4" id="10_4"></div>
+</div>
+<div class="notice">
 <pre>
 <?php
 echo htmlentities('<!-- JS to add -->
 <script type="text/javascript">
   $(document).ready(function(){
-	$(".exemple4").jRating({
+    $(".exemple4").jRating({
 	  isDisabled : true
 	});
   });
@@ -132,27 +105,27 @@ echo htmlentities('<!-- JS to add -->
 ');
 ?>
 </pre>
-		</div>
+</div>
 
-		<!-- EXEMPLE 5 -->
-		<div class="exemple">
-			<em>Exemple 5 (<strong>With onSuccess &amp; onError methods</strong>) :</em>
-			<div class="exemple5" id="10_5"></div>
-		</div>
-		<div class="notice">
+<!-- EXEMPLE 5 -->
+<div class="exemple">
+	<em>Exemple 5 (<strong>With onSuccess &amp; onError methods</strong>) :</em>
+	<div class="exemple5" id="10_5"></div>
+</div>
+<div class="notice">
 <pre>
 <?php
 echo htmlentities('<!-- JS to add -->
 <script type="text/javascript">
   $(document).ready(function(){
-	$(".exemple5").jRating({
+    $(".exemple5").jRating({
 	  length:10,
 	  decimalLength:1,
 	  onSuccess : function(){
-		alert(\'Success : your rate has been saved :)\');
+	    alert(\'Success : your rate has been saved :)\');
 	  },
 	  onError : function(){
-		alert(\'Error : please retry\');
+	    alert(\'Error : please retry\');
 	  }
 	});
   });
@@ -160,124 +133,80 @@ echo htmlentities('<!-- JS to add -->
 ');
 ?>
 </pre>
-		</div>
+</div>
 
-		<!-- EXEMPLE 6 -->
-		<div class="exemple">
-			<em>Exemple 6 (<strong>jRating &amp; <a href="http://www.myjqueryplugins.com/jNotify">jNotify</a> plugins !!</strong>) :</em>
-			<div class="exemple6" id="10_6"></div>
-		</div>
-		<div class="notice">
+<!-- EXEMPLE 5 -->
+<div class="exemple">
+	<em>Exemple 6 (<strong>Disabled rate info</strong>) :</em>
+	<div class="exemple6" id="10_5"></div>
+</div>
+<div class="notice">
 <pre>
 <?php
 echo htmlentities('<!-- JS to add -->
 <script type="text/javascript">
   $(document).ready(function(){
-	$(".exemple6").jRating({
-	  onSuccess : function(){
-		jSuccess(\'Success : your rate has been saved :)\',{
-		  HorizontalPosition:\'center\',
-		  VerticalPosition:\'top\'
-		});
-	  },
-	  onError : function(){
-		jError(\'Error : please retry\');
-	  }
-	});
-  });
-</script>
-');
-?>
-</pre>
-		</div>
-
-		<!-- EXEMPLE 7 : BASIC -->
-		<div class="exemple">
-			<em>Exemple 7 (<strong>Rate infos disabled</strong>) :</em>
-			<div class="exemple7" id="12_1"></div>
-		</div>
-		<div class="notice">
-<pre>
-<?php
-echo htmlentities('<!-- JS to add -->
-<script type="text/javascript">
-  $(document).ready(function(){
-	$(".exemple7").jRating({
+    $(".exemple6").jRating({
+	  length:10,
+	  decimalLength:1,
 	  showRateInfo:false
 	});
   });
-</script>');
+</script>
+');
 ?>
 </pre>
-		</div>
-
-		<!-- Advertise Bottom -->
-		<?php require_once(dirname(__FILE__)."/../../../includes/pub.inc.php");?>
-	</div>
-	
-	<!-- RIGHT COLUMN -->
-	<?php require_once(dirname(__FILE__)."/../../../includes/col_right.inc.php");?>
-		
-	<div class="clr"></div>
-
 </div>
-	
-	
-<!-- FOOTER -->
-<?php require_once(dirname(__FILE__)."/../../../includes/footer.inc.php");?>
 
 
-<script type="text/javascript" src="<?php echo URL_SITE.URL_DEMO_JRATING; ?>jquery/jquery.js"></script>
-<script type="text/javascript" src="<?php echo URL_SITE.URL_DEMO_JRATING; ?>jquery/jRating.jquery.js"></script>
-<script type="text/javascript" src="<?php echo URL_SITE.URL_DEMO_JRATING; ?>jquery/jNotify.jquery.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('.basic').jRating();
-		
-		$('.exemple2').jRating({
-			type:'small',
-			length : 40,
-			decimalLength : 1
+
+<div class="datasSent">
+	Datas sent to the server :
+	<p></p>
+</div>
+<div class="serverResponse">
+	Server response :
+	<p></p>
+</div>
+
+	<script type="text/javascript" src="jquery/jquery.js"></script>
+	<script type="text/javascript" src="jquery/jRating.jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.basic').jRating();
+			
+			$('.exemple2').jRating({
+				type:'small',
+				length : 40,
+				decimalLength : 1
+			});
+			
+			$('.exemple3').jRating({
+				step:true,
+				length : 20
+			});
+			
+			$('.exemple4').jRating({
+				isDisabled : true
+			});
+			
+			$('.exemple5').jRating({
+				length:10,
+				decimalLength:1,
+				onSuccess : function(){
+					alert('Success : your rate has been saved :)');
+				},
+				onError : function(){
+					alert('Error : please retry');
+				}
+			});
+			
+			$(".exemple6").jRating({
+			  length:10,
+			  decimalLength:1,
+			  showRateInfo:false
+			});
 		});
-		
-		$('.exemple3').jRating({
-			step:true,
-			length : 20
-		});
-		
-		$('.exemple4').jRating({
-			isDisabled : true
-		});
-		
-		$('.exemple5').jRating({
-			length:10,
-			decimalLength:1,
-			onSuccess : function(){
-				alert('Success : your rate has been saved :)');
-			},
-			onError : function(){
-				alert('Error : please retry');
-			}
-		});
-		
-		$('.exemple6').jRating({
-			onSuccess : function(){
-				jSuccess('Success : your rate has been saved :)',{
-					HorizontalPosition:'center',
-					VerticalPosition:'top'
-				});
-			},
-			onError : function(){
-				jError('Error : please retry');
-			}
-		});
-		
-		$(".exemple7").jRating({
-		  showRateInfo:false
-		});
-		
-	});
-</script>
-<?php require_once dirname(__FILE__)."/../../../includes/analytics.inc.php"; ?>
+	</script>
 </body>
 </html>
