@@ -19,7 +19,12 @@
 	</style>
 </head>
 <body>
-<p><a href="#">Back to MyjQueryPlugins</a></p>
+<ul>
+	<li>Full documentation on <a href="http://www.myjqueryplugins.com/jRating">MyjQueryPlugins.com/jRating</a></li>
+	<li>Live demonstration on <a href="http://www.myjqueryplugins.com/jRating/demo">jRating demonstration page</a></li>
+</ul>
+<h1>jRating plugin</h1>
+
 
 <!-- EXEMPLE 1 : BASIC -->
 <div class="exemple">
